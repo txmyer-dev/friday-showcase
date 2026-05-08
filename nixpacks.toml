@@ -1,2 +1,2 @@
 [phases.setup]
-nixPkgs = ["nodePackages_latest"]
+nixPkgs = ["nodejs_20"]
