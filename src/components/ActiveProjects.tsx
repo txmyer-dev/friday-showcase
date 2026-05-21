@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  CheckCircle2, 
-  Clock, 
-  AlertCircle, 
   Layers, 
   Terminal, 
   GitBranch, 
@@ -13,7 +10,8 @@ import {
   FileText, 
   Code,
   ArrowUpRight,
-  ExternalLink
+  ExternalLink,
+  AlertCircle
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
@@ -174,17 +172,24 @@ export const ActiveProjects = () => {
   const filteredProjects = PROJECTS.filter(p => filter === 'all' || p.status === filter);
 
   return (
-    <section className="py-32 px-4 max-w-7xl mx-auto border-t border-white/5 bg-zinc-950">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+    <section className="py-32 px-4 max-w-7xl mx-auto border-t border-white/5 bg-background relative">
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
+      
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 relative z-10">
         <div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Orchestration Pipeline</h2>
-          <p className="text-muted text-lg max-w-2xl">
-            Live operational status across all active codebases, agent deployments, and system integrations compiled directly from today's pulse.
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent mb-2 block">
+            System Operations
+          </span>
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-balance">
+            Orchestration Pipeline
+          </h2>
+          <p className="text-muted text-lg max-w-2xl font-mono text-sm leading-relaxed">
+            Live telemetry and operational status across all active codebases, agent deployments, and workflows compiled directly from today's pulse.
           </p>
         </div>
         
         {/* Filters */}
-        <div className="flex flex-wrap gap-2 bg-white/5 p-1 rounded-2xl border border-white/5 self-start md:self-auto">
+        <div className="flex flex-wrap gap-2 bg-charcoal p-1.5 rounded-2xl border border-white/5 self-start md:self-auto font-mono text-xs">
           {(['all', 'active', 'completed', 'blocked'] as const).map(type => (
             <button
               key={type}
@@ -193,10 +198,10 @@ export const ActiveProjects = () => {
                 setActiveCard(null);
               }}
               className={cn(
-                "px-4 py-2 rounded-xl text-sm font-semibold capitalize transition-all",
+                "px-4 py-2.5 rounded-xl font-bold uppercase tracking-wider transition-all duration-200",
                 filter === type 
-                  ? "bg-accent text-white shadow-lg" 
-                  : "text-muted hover:text-foreground hover:bg-white/5"
+                  ? "bg-accent text-white shadow-[0_0_15px_rgba(0,162,255,0.3)]" 
+                  : "text-muted hover:text-foreground hover:bg-card"
               )}
             >
               {type}
@@ -206,72 +211,75 @@ export const ActiveProjects = () => {
       </div>
 
       {/* Grid of Projects */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project) => (
             <motion.div
               layout
               key={project.id}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, scale: 0.97 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               onClick={() => setActiveCard(activeCard === project.id ? null : project.id)}
               className={cn(
-                "group relative p-6 rounded-2xl bg-zinc-900 border transition-all cursor-pointer overflow-hidden flex flex-col justify-between",
+                "group relative p-8 rounded-[2rem] bg-card border transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between shadow-[0_4px_24px_rgba(0,0,0,0.3)]",
                 activeCard === project.id
-                  ? "border-accent/80 bg-zinc-900 shadow-[0_0_20px_rgba(0,113,227,0.15)] md:col-span-2 lg:col-span-3"
-                  : "border-white/5 hover:border-white/20 hover:bg-zinc-800/80"
+                  ? "border-accent/80 bg-card shadow-[0_0_30px_rgba(0,162,255,0.1)] md:col-span-2 lg:col-span-3"
+                  : "border-white/5 hover:border-accent/40 hover:bg-charcoal/30"
               )}
             >
+              {/* Background Dots on Card */}
+              <div className="absolute inset-0 bg-dots opacity-20 pointer-events-none" />
+              
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-bold uppercase tracking-widest text-muted bg-white/5 px-2.5 py-1 rounded-md">
+                <div className="flex items-center justify-between mb-6 relative z-10">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted bg-charcoal border border-white/5 px-2.5 py-1 rounded-md">
                     {project.category}
                   </span>
                   
                   {/* Status Indicator */}
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 font-mono text-xs">
                     {project.status === 'completed' && (
-                      <span className="flex items-center gap-1 text-xs text-green-400 font-semibold bg-green-500/10 px-2 py-0.5 rounded-full">
-                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span className="flex items-center gap-1.5 text-success font-bold bg-success/10 border border-success/20 px-3 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-success"></span>
                         Completed
                       </span>
                     )}
                     {project.status === 'active' && (
-                      <span className="flex items-center gap-1 text-xs text-accent font-semibold bg-accent/10 px-2 py-0.5 rounded-full">
-                        <Clock className="w-3.5 h-3.5 animate-pulse" />
+                      <span className="flex items-center gap-1.5 text-accent font-bold bg-accent/10 border border-accent/20 px-3 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
                         Active
                       </span>
                     )}
                     {project.status === 'blocked' && (
-                      <span className="flex items-center gap-1 text-xs text-red-400 font-semibold bg-red-500/10 px-2 py-0.5 rounded-full">
-                        <AlertCircle className="w-3.5 h-3.5" />
+                      <span className="flex items-center gap-1.5 text-error font-bold bg-error/10 border border-error/20 px-3 py-1 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
                         Blocked
                       </span>
                     )}
                   </div>
                 </div>
-
+ 
                 {/* Content */}
-                <div className="flex gap-4 items-start mb-4">
+                <div className="flex gap-5 items-start mb-4 relative z-10">
                   <div className={cn(
-                    "p-3 rounded-xl flex items-center justify-center shrink-0",
-                    project.status === 'completed' ? "bg-green-500/10 text-green-400" :
-                    project.status === 'active' ? "bg-accent/10 text-accent" :
-                    "bg-red-500/10 text-red-400"
+                    "p-3.5 rounded-2xl flex items-center justify-center shrink-0 border",
+                    project.status === 'completed' ? "bg-success/5 text-success border-success/10" :
+                    project.status === 'active' ? "bg-accent/5 text-accent border-accent/10" :
+                    "bg-error/5 text-error border-error/10"
                   )}>
                     {project.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold tracking-tight text-white group-hover:text-accent transition-colors flex items-center gap-1">
+                    <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-accent transition-colors flex items-center gap-2">
                       {project.name}
                       {activeCard !== project.id && (
-                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-muted" />
+                        <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-muted" />
                       )}
                     </h3>
-                    <p className="text-muted text-sm mt-1 leading-relaxed">
+                    <p className="text-muted text-sm mt-2 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -286,15 +294,15 @@ export const ActiveProjects = () => {
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="border-t border-white/5 pt-6 mt-6 overflow-hidden"
+                    className="border-t border-white/5 pt-6 mt-6 overflow-hidden relative z-10"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div>
-                        <h4 className="text-sm font-bold uppercase tracking-wider text-muted mb-4">System Accomplishments</h4>
-                        <ul className="space-y-3">
+                        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted mb-4">Operational Achievements</h4>
+                        <ul className="space-y-3 font-mono text-xs">
                           {project.accomplishments.map((acc, index) => (
-                            <li key={index} className="flex gap-3 text-sm text-zinc-300 leading-relaxed">
-                              <span className="text-accent font-bold shrink-0 mt-0.5">•</span>
+                            <li key={index} className="flex gap-3 text-zinc-300 leading-relaxed">
+                              <span className="text-accent font-bold shrink-0 mt-0.5">&gt;&gt;</span>
                               <span>{acc}</span>
                             </li>
                           ))}
@@ -302,11 +310,11 @@ export const ActiveProjects = () => {
                       </div>
                       <div className="flex flex-col justify-between">
                         <div className="space-y-4">
-                          <h4 className="text-sm font-bold uppercase tracking-wider text-muted">Pipeline Registry</h4>
-                          <div className="bg-black/50 p-4 rounded-xl border border-white/5 font-mono text-xs text-zinc-400 space-y-2">
-                            <p><span className="text-accent">registry_id:</span> {project.id}</p>
-                            <p><span className="text-accent">agent_state:</span> {project.statusText}</p>
-                            <p><span className="text-accent">priority:</span> {project.status === 'blocked' ? 'HIGH' : 'NORMAL'}</p>
+                          <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted">Pipeline Registry</h4>
+                          <div className="bg-black/40 p-5 rounded-2xl border border-white/5 font-mono text-xs text-zinc-400 space-y-2.5">
+                            <p><span className="text-accent font-bold">registry_id:</span> {project.id}</p>
+                            <p><span className="text-accent font-bold">agent_state:</span> {project.statusText}</p>
+                            <p><span className="text-accent font-bold">priority:</span> {project.status === 'blocked' ? 'HIGH' : 'NORMAL'}</p>
                           </div>
                         </div>
 
@@ -316,7 +324,7 @@ export const ActiveProjects = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="mt-6 inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-semibold px-4 py-3 rounded-xl text-sm transition-colors"
+                            className="mt-6 inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_4px_15px_rgba(0,162,255,0.2)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
                           >
                             {project.linkLabel || 'View Details'}
                             <ExternalLink className="w-4 h-4" />
@@ -330,8 +338,8 @@ export const ActiveProjects = () => {
 
               {/* Small "click to view detail" hint */}
               {activeCard !== project.id && (
-                <div className="text-xs text-muted/50 mt-4 group-hover:text-muted/80 transition-colors">
-                  Click to view accomplishments & registry info
+                <div className="text-[10px] font-mono text-muted/50 mt-4 group-hover:text-muted/80 transition-colors">
+                  [Click to expand telemetry logs]
                 </div>
               )}
             </motion.div>

@@ -7,22 +7,18 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#000000",
+        background: "#050508",
         foreground: "#ffffff",
-        accent: "#0071e3", // Apple-style Blue
-        muted: "#86868b", // Apple-style Grey
+        accent: "#00a2ff",
+        success: "#00ff88",
+        error: "#ff3b30",
+        muted: "#8e8e93",
+        charcoal: "#121218",
+        card: "#0d0d12",
       },
       fontFamily: {
-        sans: [
-          "SF Pro Display",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["Space Grotesk", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
       animation: {
         "fade-in": "fadeIn 0.8s ease-out forwards",
