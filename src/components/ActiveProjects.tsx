@@ -33,134 +33,129 @@ type Project = {
 const PROJECTS: Project[] = [
   {
     id: 'agentic-wiki',
-    name: 'Agentic Wiki & Pulse System',
-    category: 'System Core',
-    description: 'Centralized System of Record operating on the ICM framework, synchronizing user directives and calendar/email signals.',
+    name: 'Business Operations Hub',
+    category: 'Core Operations',
+    description: 'A central system of record that takes business plans, schedules, and incoming signals, organizing them into clear tasks for the team.',
     status: 'active',
-    statusText: 'Synchronized & Operational',
+    statusText: 'Fully Operational',
     icon: <GitBranch className="w-5 h-5" />,
     accomplishments: [
-      'Established Morning_Briefing_Template.md structure.',
-      'Configured 06:00 AM EDT proactive trigger for automated briefings.',
-      'Implemented Todoist Shadow Map Sync Engine (todoist-shadow-map.json) to auto-close [x] tasks.',
-      'Enforced automated Git commit & push protocols for constant sync.'
+      'Created a daily morning briefing system to summarize team tasks.',
+      'Automated daily planner updates to eliminate manual logging.',
+      'Configured automatic backups to keep all logs and files secure.'
     ]
   },
   {
     id: 'paperclip-extension',
-    name: 'Paperclip VS Code Extension',
-    category: 'Developer Tools',
-    description: 'Context-aware VS Code extension and sidebar facilitating direct cloud workspace orchestration.',
+    name: 'Workspace Co-Pilot',
+    category: 'Productivity Tools',
+    description: 'A custom sidebar tool that integrates tasks, file organization, and deployment updates directly into the team\'s main workspace.',
     status: 'completed',
-    statusText: 'Release packaged (v0.4.0)',
+    statusText: 'Release Packaged (v0.4.0)',
     icon: <Layers className="w-5 h-5" />,
     accomplishments: [
-      'Purged historical obsidian-paperclip duplicates and consolidated code.',
-      'Resolved workspace cwd warning to stabilize runtime environment.',
-      'Validated code health with compiler checks and 63 unit tests.',
-      'Packaged and compiled paperclip-extension-0.4.0.vsix installer.'
+      'Cleaned up workspace clutter for faster startup times.',
+      'Tested and packaged the tool for simple, one-click installation.',
+      'Stabilized database connections to prevent app slow-downs.'
     ]
   },
   {
     id: 'agency-agents',
-    name: 'Agency Agents ("Special Forces")',
-    category: 'Autonomous Agents',
-    description: 'High-scale enterprise agentic workforce running on the Paperclip database.',
+    name: 'Specialized AI Workforce',
+    category: 'AI Workforce',
+    description: 'A network of digital assistants trained to handle client support, media creation, strategy, and operations.',
     status: 'active',
-    statusText: 'Deployment Seeded',
+    statusText: 'Active & Onboarding',
     icon: <Database className="w-5 h-5" />,
     accomplishments: [
-      'Pruned roster from 167 down to 108 highly-specialized agents.',
-      'Implemented 8-Team structure (max 15 agents/team) covering platforms, creative, systems, operations.',
-      'Migrated all agent profiles to Paperclip database.',
-      'Assigned company onboarding tasks to the Paperclip CEO agent.'
+      'Reorganized the workforce into 8 specialized teams (Support, Legal, Marketing, etc.).',
+      'Streamlined the roster from 167 assistants down to 108 high-performing agents.',
+      'Successfully uploaded all assistant profiles to the secure company database.'
     ]
   },
   {
     id: 'assistant-app',
-    name: 'React/Vite Assistant App',
-    category: 'Web Applications',
-    description: 'Brutalist-themed landing page and local simulation tool developed for Craigslist EPA listing.',
+    name: 'Executive Client Portal',
+    category: 'Client Platforms',
+    description: 'A high-performance portal created to present professional milestones, resumes, and automated portfolios.',
     status: 'completed',
-    statusText: 'Deployed live to Netlify',
+    statusText: 'Published Live',
     icon: <Code className="w-5 h-5" />,
     accomplishments: [
-      'Scaffolded React + Vite project in /root/dev/assistant-app.',
-      'Designed premium Brutalist Signal theme with GSAP micro-animations.',
-      'Retrieved Tony Myers resume details via GWS CLI and populated layout.',
-      'Deployed production build to Netlify.'
+      'Designed and built a modern, smooth web design with quick page loads.',
+      'Integrated verified professional experience and career highlights.',
+      'Successfully published the website live to cloud hosting.'
     ],
     link: 'https://alex-assistant-c6f9.netlify.app',
-    linkLabel: 'Launch Live Site'
+    linkLabel: 'Launch Portal'
   },
   {
     id: 'exobrain-recall',
-    name: 'Exobrain & Recall.it Integration',
-    category: 'Knowledge Graph',
-    description: 'Deep knowledge retrieval integration serving as the memory layer for the Exobrain.',
+    name: 'Smart Knowledge Base',
+    category: 'Knowledge Systems',
+    description: 'A long-term memory engine that indexes research, articles, and past decisions for instant recall by the team.',
     status: 'active',
-    statusText: 'Ingestion Active',
+    statusText: 'Memory Feed Active',
     icon: <Activity className="w-5 h-5" />,
     accomplishments: [
-      'Corrected service attribution between Recall.it (memory) and Recall.ai (bots).',
-      'Configured remote SSE endpoint in mcp_config.json.',
-      'Conducted credential audit verifying secure usage of API key.',
-      'Scaffolded ingestion strategy for the rss-wisdom-collector.'
+      'Separated knowledge searches from meeting automation to improve search speeds.',
+      'Secured main configuration settings and credentials.',
+      'Scaffolded automated feeds to read and save industry news daily.'
     ]
   },
   {
     id: 'icm-tree',
-    name: 'ICM Tree Factory Architecture',
-    category: 'System Core',
-    description: 'Structural mapping of CRM records ("Sales Floor") to compilation systems ("Factory").',
+    name: 'Client Onboarding Pipeline',
+    category: 'Core Operations',
+    description: 'A structured system that automatically configures client databases and records when they register.',
     status: 'active',
-    statusText: 'Validating Logic',
+    statusText: 'Testing Logic',
     icon: <Workflow className="w-5 h-5" />,
     accomplishments: [
-      'Completed deep-dive mapping of icm-tree staging/silo logic.',
-      'Created workflow blueprint diagram in 5xcal.excalidraw.',
-      'Validated client onboard, preflight, activation, and completion scripts.'
+      'Completed a full design map showing how a client moves from sign-up to launch.',
+      'Designed a blueprint diagram of the customer setup workflow.',
+      'Successfully tested the automated setup scripts.'
     ]
   },
   {
     id: 'wotai-cms',
-    name: 'Wotai CMS Reverse Engineering',
-    category: 'Research & Strategy',
-    description: 'Framework analysis and backend replication roadmap for wotai.co/blog.',
+    name: 'CMS Integration Strategy',
+    category: 'Strategy & Consulting',
+    description: 'A strategic plan to optimize website structure and content management systems to match modern marketing blogs.',
     status: 'completed',
-    statusText: 'Blueprint Delivered',
+    statusText: 'Strategy Delivered',
     icon: <FileText className="w-5 h-5" />,
     accomplishments: [
-      'Reverse-engineered framework, CMS, and styles on wotai.co/blog.',
-      'Designed complete content replication strategy.'
+      'Deconstructed formatting, styling, and speeds of top-tier websites.',
+      'Created a comprehensive blueprint to replicate high-speed publishing.'
     ]
   },
   {
     id: 'n8n-automation',
-    name: 'n8n Ingestion Workflows',
-    category: 'Workflow Automation',
-    description: 'Automated briefing scheduler and Slack/Google Docs webhook handlers.',
+    name: 'Communication Automations',
+    category: 'Automations',
+    description: 'Workflows that automatically send scheduled reports, summaries, and notifications to Slack and Google Docs.',
     status: 'blocked',
-    statusText: 'OAuth Action Required',
+    statusText: 'Awaiting Authorization',
     icon: <Terminal className="w-5 h-5" />,
     accomplishments: [
-      'Repaired automated "Morning Briefing" scheduler in n8n UI.',
-      'Configured Slack/Google callback hooks in backend database.',
-      'Blocked on manual OAuth authorization in the local n8n interface.'
+      'Repaired automated briefing schedulers.',
+      'Set up webhook endpoints to post directly to Slack.',
+      'Currently waiting for manual login authorization in the Slack panel.'
     ]
   },
   {
     id: 'withings-health',
-    name: 'Withings Health Integration',
-    category: 'Workflow Automation',
-    description: 'Wearable and scale health data automated ingestion pipeline.',
+    name: 'Fitness & Sleep Tracker',
+    category: 'Automations',
+    description: 'An automated flow to sync steps, sleep data, and wellness indicators into the team logging systems.',
     status: 'blocked',
-    statusText: 'Scope Friction (Blocked)',
+    statusText: 'Pending App Permission',
     icon: <AlertCircle className="w-5 h-5" />,
     accomplishments: [
-      'Verified withings-callback redirect endpoint in n8n cluster.',
-      'Encountered "scope not allowed" developer app permissions barrier.',
-      'Temporarily suspended integration pending account scope adjustments.'
+      'Configured secure callback links.',
+      'Encountered a third-party app permission error during setup.',
+      'Temporarily paused pending developer credentials review.'
     ]
   }
 ];
@@ -178,13 +173,13 @@ export const ActiveProjects = () => {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 relative z-10">
         <div>
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent mb-2 block">
-            System Operations
+            Active Projects
           </span>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-balance">
-            Orchestration Pipeline
+            Project Portfolio
           </h2>
           <p className="text-muted text-lg max-w-2xl font-mono text-sm leading-relaxed">
-            Live telemetry and operational status across all active codebases, agent deployments, and workflows compiled directly from today's pulse.
+            A live view of our current projects, completed milestones, and active initiatives, kept up-to-date in real-time.
           </p>
         </div>
         
@@ -204,7 +199,7 @@ export const ActiveProjects = () => {
                   : "text-muted hover:text-foreground hover:bg-card"
               )}
             >
-              {type}
+              {type === 'all' ? 'all' : type === 'active' ? 'in progress' : type === 'completed' ? 'completed' : 'on hold'}
             </button>
           ))}
         </div>
@@ -250,13 +245,13 @@ export const ActiveProjects = () => {
                     {project.status === 'active' && (
                       <span className="flex items-center gap-1.5 text-accent font-bold bg-accent/10 border border-accent/20 px-3 py-1 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
-                        Active
+                        In Progress
                       </span>
                     )}
                     {project.status === 'blocked' && (
                       <span className="flex items-center gap-1.5 text-error font-bold bg-error/10 border border-error/20 px-3 py-1 rounded-full">
                         <span className="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
-                        Blocked
+                        On Hold
                       </span>
                     )}
                   </div>
@@ -298,7 +293,7 @@ export const ActiveProjects = () => {
                   >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div>
-                        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted mb-4">Operational Achievements</h4>
+                        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted mb-4">Key Accomplishments</h4>
                         <ul className="space-y-3 font-mono text-xs">
                           {project.accomplishments.map((acc, index) => (
                             <li key={index} className="flex gap-3 text-zinc-300 leading-relaxed">
@@ -310,11 +305,11 @@ export const ActiveProjects = () => {
                       </div>
                       <div className="flex flex-col justify-between">
                         <div className="space-y-4">
-                          <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted">Pipeline Registry</h4>
+                          <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted">Project Details</h4>
                           <div className="bg-black/40 p-5 rounded-2xl border border-white/5 font-mono text-xs text-zinc-400 space-y-2.5">
-                            <p><span className="text-accent font-bold">registry_id:</span> {project.id}</p>
-                            <p><span className="text-accent font-bold">agent_state:</span> {project.statusText}</p>
-                            <p><span className="text-accent font-bold">priority:</span> {project.status === 'blocked' ? 'HIGH' : 'NORMAL'}</p>
+                            <p><span className="text-accent font-bold">Project ID:</span> {project.id}</p>
+                            <p><span className="text-accent font-bold">Current Status:</span> {project.statusText}</p>
+                            <p><span className="text-accent font-bold">Priority:</span> {project.status === 'blocked' ? 'HIGH' : 'NORMAL'}</p>
                           </div>
                         </div>
 
@@ -339,7 +334,7 @@ export const ActiveProjects = () => {
               {/* Small "click to view detail" hint */}
               {activeCard !== project.id && (
                 <div className="text-[10px] font-mono text-muted/50 mt-4 group-hover:text-muted/80 transition-colors">
-                  [Click to expand telemetry logs]
+                  [Click to view accomplishments & details]
                 </div>
               )}
             </motion.div>

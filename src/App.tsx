@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, Terminal as TermIcon, Layers as PipeIcon, Cpu, Send } from "lucide-react";
+import { ArrowRight, Mail, Layers as PipeIcon, Cpu, Send } from "lucide-react";
 import gsap from "gsap";
-import { NarrativeTerminal } from "./components/NarrativeTerminal";
 import { BentoEcosystem } from "./components/BentoEcosystem";
 import { ActiveProjects } from "./components/ActiveProjects";
 import { cn } from "./lib/utils";
@@ -76,18 +75,14 @@ export default function App() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
           </span>
           <span className="font-bold tracking-widest text-white uppercase flex items-center gap-1.5">
-            FRIDAY <span className="text-muted/60">//</span> ORCHESTRATOR
+            FRIDAY <span className="text-muted/60">//</span> SYSTEM OPERATIONS
           </span>
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-muted font-bold uppercase tracking-wider">
-          <button onClick={() => scrollToSection('demo')} className="hover:text-accent transition-colors flex items-center gap-1.5">
-            <TermIcon className="w-3.5 h-3.5" />
-            Terminal
-          </button>
           <button onClick={() => scrollToSection('pipeline')} className="hover:text-accent transition-colors flex items-center gap-1.5">
             <PipeIcon className="w-3.5 h-3.5" />
-            Pipeline
+            Operations
           </button>
           <button onClick={() => scrollToSection('ecosystem')} className="hover:text-accent transition-colors flex items-center gap-1.5">
             <Cpu className="w-3.5 h-3.5" />
@@ -128,16 +123,16 @@ export default function App() {
 
           {/* Subtitle */}
           <p className="hero-subtitle opacity-0 text-lg sm:text-2xl text-muted max-w-2xl mx-auto mb-12 font-mono leading-relaxed text-balance">
-            Autonomous multi-agent orchestration. Operating silent pipelines across workspaces, cloud clusters, and developer runtimes.
+            Autonomous operations dashboard. Aligning automated workflows, client onboarding pipelines, and digital assistant teams.
           </p>
 
           {/* CTA */}
           <div className="hero-cta opacity-0 flex flex-col sm:flex-row gap-4 mb-20">
             <button
-              onClick={() => scrollToSection('demo')}
+              onClick={() => scrollToSection('pipeline')}
               className="group flex items-center justify-center gap-2.5 bg-foreground text-background px-8 py-4.5 rounded-full text-base font-bold uppercase tracking-wider transition-all duration-300 hover:bg-accent hover:text-white shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
             >
-              See Live Stream
+              Explore Operations
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
             <a
@@ -163,8 +158,8 @@ export default function App() {
             </div>
             <div>
               <div className="text-[10px] text-muted uppercase tracking-wider font-bold mb-1">Pass rate</div>
-              <div className="text-2xl font-bold text-white">63 / 63 Tests</div>
-              <div className="text-[10px] text-success">Compiles Clean</div>
+              <div className="text-2xl font-bold text-white">63 / 63 Specs</div>
+              <div className="text-[10px] text-success">Builds Clean</div>
             </div>
             <div>
               <div className="text-[10px] text-muted uppercase tracking-wider font-bold mb-1">Active Cluster</div>
@@ -172,23 +167,6 @@ export default function App() {
               <div className="text-[10px] text-accent">Dokploy Orchestrated</div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Terminal Section */}
-      <section id="demo" className="py-32 px-4 border-t border-white/5 bg-black/40 relative">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full mb-4 inline-block">
-              Simulated Node Execution
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Command Deck</h2>
-            <p className="text-muted max-w-lg mx-auto font-mono text-sm leading-relaxed">
-              Watch FRIDAY resolve incoming alerts, redirect API tunnels, and synchronise databases.
-            </p>
-          </div>
-          <NarrativeTerminal />
         </div>
       </section>
 
