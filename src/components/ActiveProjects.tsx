@@ -9,6 +9,7 @@ import {
   Workflow, 
   FileText, 
   Code,
+  Cpu,
   ArrowUpRight,
   ExternalLink,
   AlertCircle
@@ -28,6 +29,7 @@ type Project = {
   accomplishments: string[];
   link?: string;
   linkLabel?: string;
+  github?: string;
 };
 
 const PROJECTS: Project[] = [
@@ -43,7 +45,8 @@ const PROJECTS: Project[] = [
       'Created a daily morning briefing system to summarize team tasks.',
       'Automated daily planner updates to eliminate manual logging.',
       'Configured automatic backups to keep all logs and files secure.'
-    ]
+    ],
+    github: 'https://github.com/txmyer-dev/agentic-wiki'
   },
   {
     id: 'paperclip-extension',
@@ -57,7 +60,8 @@ const PROJECTS: Project[] = [
       'Cleaned up workspace clutter for faster startup times.',
       'Tested and packaged the tool for simple, one-click installation.',
       'Stabilized database connections to prevent app slow-downs.'
-    ]
+    ],
+    github: 'https://github.com/txmyer-dev/paperclip-extension'
   },
   {
     id: 'agency-agents',
@@ -88,6 +92,24 @@ const PROJECTS: Project[] = [
     ],
     link: 'https://alex-assistant-c6f9.netlify.app',
     linkLabel: 'Launch Portal'
+  },
+  {
+    id: 'friday-showcase',
+    name: 'Operations Showcase Website',
+    category: 'Client Platforms',
+    description: 'This interactive portal showcasing automated systems, project portfolios, and real-time telemetry widgets.',
+    status: 'completed',
+    statusText: 'Published Live',
+    icon: <Cpu className="w-5 h-5" />,
+    accomplishments: [
+      'Built a premium Brutalist/Cyberpunk dark aesthetic design.',
+      'Designed custom telemetry layouts for system performance displays.',
+      'Removed developer-focused terminal simulation to streamline business value.',
+      'Configured automated deployment via Dokploy workflows.'
+    ],
+    link: 'https://friday.felaniam.cloud',
+    linkLabel: 'Launch Showcase',
+    github: 'https://github.com/txmyer-dev/friday-showcase'
   },
   {
     id: 'exobrain-recall',
@@ -313,18 +335,33 @@ export const ActiveProjects = () => {
                           </div>
                         </div>
 
-                        {project.link && (
-                          <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={(e) => e.stopPropagation()}
-                            className="mt-6 inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_4px_15px_rgba(0,162,255,0.2)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
-                          >
-                            {project.linkLabel || 'View Details'}
-                            <ExternalLink className="w-4 h-4" />
-                          </a>
-                        )}
+                        <div className="flex flex-wrap gap-3 mt-6">
+                          {project.github && (
+                            <a
+                              href={project.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center justify-center gap-2 bg-charcoal hover:bg-black/80 border border-white/10 hover:border-accent/40 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_2px_8px_rgba(0,0,0,0.2)] hover:scale-[1.02]"
+                            >
+                              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                              Repository
+                            </a>
+                          )}
+
+                          {project.link && (
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_4px_15px_rgba(0,162,255,0.2)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
+                            >
+                              {project.linkLabel || 'View Details'}
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </motion.div>
