@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
 import { NarrativeTerminal } from "./components/NarrativeTerminal";
 import { BentoEcosystem } from "./components/BentoEcosystem";
+import { ActiveProjects } from "./components/ActiveProjects";
 
 export default function App() {
   return (
@@ -55,6 +56,9 @@ export default function App() {
            <NarrativeTerminal />
         </div>
       </section>
+
+      {/* Active Projects Showcase */}
+      <ActiveProjects />
 
       {/* Bento Ecosystem */}
       <BentoEcosystem />
