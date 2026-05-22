@@ -7,14 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#050508",
-        foreground: "#ffffff",
-        accent: "#00a2ff",
+        background: "#0D0D12",
+        foreground: "#FAF8F5",
+        accent: "#C9A84C",
         success: "#00ff88",
         error: "#ff3b30",
-        muted: "#8e8e93",
-        charcoal: "#121218",
-        card: "#0d0d12",
+        muted: "#a2a2b0",
+        charcoal: "#13131a",
+        card: "#181822",
       },
       fontFamily: {
         sans: ["Space Grotesk", "sans-serif"],

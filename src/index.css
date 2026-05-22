@@ -40,7 +40,7 @@ body::after {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00a2ff;
+  background: #C9A84C;
 }
 
 @layer utilities {
