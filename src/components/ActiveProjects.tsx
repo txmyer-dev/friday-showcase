@@ -217,7 +217,7 @@ export const ActiveProjects = () => {
               className={cn(
                 "px-4 py-2.5 rounded-xl font-bold uppercase tracking-wider transition-all duration-200",
                 filter === type 
-                  ? "bg-accent text-white shadow-[0_0_15px_rgba(201,168,76,0.3)]" 
+                  ? "bg-accent text-white shadow-[0_0_15px_rgba(0,162,255,0.3)]" 
                   : "text-muted hover:text-foreground hover:bg-card"
               )}
             >
@@ -242,7 +242,7 @@ export const ActiveProjects = () => {
               className={cn(
                 "group relative p-8 rounded-[2rem] bg-card border transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between shadow-[0_4px_24px_rgba(0,0,0,0.3)]",
                 activeCard === project.id
-                  ? "border-accent/80 bg-card shadow-[0_0_30px_rgba(201,168,76,0.1)] md:col-span-2 lg:col-span-3"
+                  ? "border-accent/80 bg-card shadow-[0_0_30px_rgba(0,162,255,0.1)] md:col-span-2 lg:col-span-3"
                   : "border-white/5 hover:border-accent/40 hover:bg-charcoal/30"
               )}
             >
@@ -355,7 +355,7 @@ export const ActiveProjects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_4px_15px_rgba(201,168,76,0.2)] hover:shadow-[0_4px_25px_rgba(201,168,76,0.3)] hover:scale-[1.02]"
+                              className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_4px_15px_rgba(0,162,255,0.2)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
                             >
                               {project.linkLabel || 'View Details'}
                               <ExternalLink className="w-4 h-4" />

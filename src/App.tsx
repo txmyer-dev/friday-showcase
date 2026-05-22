@@ -66,7 +66,7 @@ export default function App() {
       <nav className={cn(
         "fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl rounded-full border transition-all duration-500 px-6 py-4 flex items-center justify-between font-mono text-xs",
         scrolled 
-          ? "bg-card/80 backdrop-blur-xl border-accent/20 shadow-[0_10px_40px_rgba(201,168,76,0.06)] mt-2" 
+          ? "bg-card/80 backdrop-blur-xl border-accent/20 shadow-[0_10px_40px_rgba(0,162,255,0.06)] mt-2" 
           : "bg-transparent border-white/5"
       )}>
         <div className="flex items-center gap-3">
@@ -93,7 +93,7 @@ export default function App() {
         <div>
           <a 
             href="mailto:txmyer@gmail.com" 
-            className="bg-accent/10 border border-accent/30 hover:bg-accent hover:border-accent hover:text-white px-5 py-2.5 rounded-full font-bold uppercase tracking-widest text-accent transition-all duration-300 font-mono shadow-[0_2px_10px_rgba(201,168,76,0.15)]"
+            className="bg-accent/10 border border-accent/30 hover:bg-accent hover:border-accent hover:text-white px-5 py-2.5 rounded-full font-bold uppercase tracking-widest text-accent transition-all duration-300 font-mono shadow-[0_2px_10px_rgba(0,162,255,0.15)]"
           >
             Connect
           </a>
@@ -103,7 +103,7 @@ export default function App() {
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 bg-grid pt-24">
         {/* Neon Light Gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(201,168,76,0.06),transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,162,255,0.06),transparent_50%)] pointer-events-none" />
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[160px] -z-10 animate-pulse pointer-events-none" />
         
         <div className="text-center z-10 max-w-4xl mx-auto flex flex-col items-center">
@@ -130,7 +130,7 @@ export default function App() {
           <div className="hero-cta opacity-0 flex flex-col sm:flex-row gap-4 mb-20">
             <button
               onClick={() => scrollToSection('pipeline')}
-              className="group flex items-center justify-center gap-2.5 bg-foreground text-background px-8 py-4.5 rounded-full text-base font-bold uppercase tracking-wider transition-all duration-300 hover:bg-accent hover:text-white shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_4px_25px_rgba(201,168,76,0.3)] hover:scale-[1.02]"
+              className="group flex items-center justify-center gap-2.5 bg-foreground text-background px-8 py-4.5 rounded-full text-base font-bold uppercase tracking-wider transition-all duration-300 hover:bg-accent hover:text-white shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
             >
               Explore Operations
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -182,7 +182,7 @@ export default function App() {
 
       {/* Brutalist Call to Action Section */}
       <section className="py-32 px-4 text-center bg-black/20 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(201,168,76,0.06),transparent_70%)] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(0,162,255,0.06),transparent_70%)] pointer-events-none" />
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
         
         <motion.div
@@ -205,7 +205,7 @@ export default function App() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
             <a 
               href="mailto:txmyer@gmail.com"
-              className="inline-flex items-center gap-3 bg-accent hover:bg-accent/80 text-white font-bold px-8 py-5 rounded-full text-base uppercase tracking-widest transition-all duration-300 shadow-[0_4px_20px_rgba(201,168,76,0.2)] hover:shadow-[0_4px_30px_rgba(201,168,76,0.4)] hover:scale-[1.03]"
+              className="inline-flex items-center gap-3 bg-accent hover:bg-accent/80 text-white font-bold px-8 py-5 rounded-full text-base uppercase tracking-widest transition-all duration-300 shadow-[0_4px_20px_rgba(0,162,255,0.2)] hover:shadow-[0_4px_30px_rgba(0,162,255,0.4)] hover:scale-[1.03]"
             >
               Let's build your pipeline
               <Mail className="w-5 h-5" />
