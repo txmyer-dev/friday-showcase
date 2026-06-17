@@ -12,7 +12,10 @@ import {
   Cpu,
   ArrowUpRight,
   ExternalLink,
-  AlertCircle
+  AlertCircle,
+  Mic,
+  Server,
+  Play
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 
@@ -179,6 +182,113 @@ const PROJECTS: Project[] = [
       'Encountered a third-party app permission error during setup.',
       'Temporarily paused pending developer credentials review.'
     ]
+  },
+  {
+    id: 'pocket-scribe',
+    name: 'pocketScribe (Voice Pipeline)',
+    category: 'Voice Automation',
+    description: 'An automated audio-to-text pipeline that processes voice recordings, runs diarization, and syncs meeting transcripts directly to Notion and Slack.',
+    status: 'active',
+    statusText: 'Production Deployed',
+    icon: <Mic className="w-5 h-5" />,
+    accomplishments: [
+      'Collapsed entire diarization subsystem into a single Deepgram API call, reducing code size by 49%.',
+      'Created notion_sync.py to read meeting notes from Notion and write transcripts to Notion databases.',
+      'Containerized and successfully deployed pocketScribe to Google Cloud Run with Secret Manager integrations.',
+      'Configured Syncthing and local_uploader.py watchdog service for automatic audio forwarding from mobile devices.'
+    ],
+    github: 'https://github.com/txmyer-dev/pocket-scribe'
+  },
+  {
+    id: 'command-centre',
+    name: 'Command Centre Dashboard',
+    category: 'Core Operations',
+    description: 'A premium Next.js dashboard template that tracks daily briefings, system telemetry, and agent communication logs in real-time.',
+    status: 'completed',
+    statusText: 'Service Active (legion.felani.am)',
+    icon: <Server className="w-5 h-5" />,
+    accomplishments: [
+      'Reorganized repository structure, normalized casing, and aligned specialist agent grounding paths.',
+      'Deployed Next.js Command Centre as a background systemd service running on port 9685, mapped via Traefik.',
+      'Upgraded briefings to a premium dashboard layout featuring dynamic markdown rendering, yesterday\'s momentum, and telemetry cards.'
+    ],
+    link: 'https://legion.felani.am',
+    linkLabel: 'Launch Dashboard',
+    github: 'https://github.com/txmyer-dev/chief-of-staff'
+  },
+  {
+    id: 'so-what-engine',
+    name: 'SO-WHAT Engine',
+    category: 'Knowledge Systems',
+    description: 'A strategic alignment system that links agent goals with high-leverage tasks using the Skill("StrategicAlignment") core logic.',
+    status: 'active',
+    statusText: 'Core Development (Phase 1)',
+    icon: <Workflow className="w-5 h-5" />,
+    accomplishments: [
+      'Captured SO-WHAT core engine requirements in 03-SYSTEM/SO-WHAT-Requirements.md.',
+      'Configured and registered GBrain and Graphify MCP servers directly in Hermes\' configurations to enable context-aware queries.',
+      'Cleaned up Obsidian vault metadata recursively and purged redundant tid strings.'
+    ]
+  },
+  {
+    id: 'schola-umbra',
+    name: 'Schola Umbra Prototype',
+    category: 'Game Development',
+    description: 'A Godot 4 game prototype featuring custom scripting architectures, NPC behavior nodes, and automated test runners.',
+    status: 'completed',
+    statusText: 'Prototype Validated',
+    icon: <Play className="w-5 h-5" />,
+    accomplishments: [
+      'Compiled complete PRD and implementation plans from historical chat logs.',
+      'Created core script architectures including WorldManager.gd, BaseMap.gd, Player.gd, NPCChild.gd, and TestRunner.gd.',
+      'Performed static code validation to ensure syntax and indentation integrity.'
+    ]
+  },
+  {
+    id: 'icm-architect',
+    name: 'ICM-Architect Pipeline',
+    category: 'Core Operations',
+    description: 'A structured 7-stage ICM pipeline with stage contracts, plans, transition autonomy protocols, and orchestration scripts.',
+    status: 'active',
+    statusText: 'Orchestration Active',
+    icon: <Layers className="w-5 h-5" />,
+    accomplishments: [
+      'Installed the ICM-Architect skill and verified structured parser workflows on dev briefs.',
+      'Scaffolded a 7-stage ICM pipeline under /root/dev/icm-test/ with CONTEXT.md and PLAN.md contracts.',
+      'Designed stage transition autonomy protocols and created icm_status.py / icm_runner.py orchestration tools.',
+      'Mapped synergy and pipeline workflows for ce-* skills under /root/dev/ce-workflow-pipeline/.'
+    ]
+  },
+  {
+    id: 'craigslist-portal',
+    name: 'Craigslist Assistant Portal',
+    category: 'Client Platforms',
+    description: 'An interactive accessibility-focused website featuring dictation formatting simulators and workspace explorers.',
+    status: 'completed',
+    statusText: 'Published Live',
+    icon: <Code className="w-5 h-5" />,
+    accomplishments: [
+      'Designed and developed the Craigslist Online Assistant website in /root/dev/apex/website/ with custom accessibility panels.',
+      'Redesigned and polished the landing page using Preset C (Brutalist Signal) and Preset B (Midnight Luxe) styles.',
+      'Deployed the live site to Netlify at https://craigslist-assistant-res-f7c0545b.netlify.app.'
+    ],
+    link: 'https://craigslist-assistant-res-f7c0545b.netlify.app',
+    linkLabel: 'Launch Portal'
+  },
+  {
+    id: 'slack-bot-freellm',
+    name: 'Slack Bot & FreeLLMAPI',
+    category: 'Automations',
+    description: 'An integration layer that connects Slack Bolt communication pipelines with a unified FreeLLMAPI provider pool.',
+    status: 'active',
+    statusText: 'Integration Active',
+    icon: <Terminal className="w-5 h-5" />,
+    accomplishments: [
+      'Deployed FreeLLMAPI with 5 LLM provider keys as a persisted systemd service running on port 3001.',
+      'Configured Slack Bolt integration requirements and added Slack credentials to configuration parser.',
+      'Created private GitHub repository txmyer-dev/slack-bot and verified initial code sync.'
+    ],
+    github: 'https://github.com/txmyer-dev/slack-bot'
   }
 ];
 
