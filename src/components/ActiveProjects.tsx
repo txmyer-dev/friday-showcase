@@ -299,24 +299,23 @@ export const ActiveProjects = () => {
   const filteredProjects = PROJECTS.filter(p => filter === 'all' || p.status === filter);
 
   return (
-    <section className="py-32 px-4 max-w-7xl mx-auto border-t border-white/5 bg-background relative">
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
+    <section className="py-32 px-4 max-w-7xl mx-auto bg-background relative">
       
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 relative z-10">
         <div>
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent mb-2 block">
-            Active Projects
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-background bg-accent px-3 py-1 mb-4 inline-block">
+            ACTIVE PROJECTS
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 text-balance">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-balance uppercase">
             Project Portfolio
           </h2>
-          <p className="text-muted text-lg max-w-2xl font-mono text-sm leading-relaxed">
+          <p className="text-muted text-lg max-w-2xl font-mono text-sm leading-relaxed uppercase tracking-wider">
             A live view of our current projects, completed milestones, and active initiatives, kept up-to-date in real-time.
           </p>
         </div>
         
         {/* Filters */}
-        <div className="flex flex-wrap gap-2 bg-charcoal p-1.5 rounded-2xl border border-white/5 self-start md:self-auto font-mono text-xs">
+        <div className="flex flex-wrap border-2 border-foreground self-start md:self-auto font-mono text-xs bg-charcoal">
           {(['all', 'active', 'completed', 'blocked'] as const).map(type => (
             <button
               key={type}
@@ -325,10 +324,10 @@ export const ActiveProjects = () => {
                 setActiveCard(null);
               }}
               className={cn(
-                "px-4 py-2.5 rounded-xl font-bold uppercase tracking-wider transition-all duration-200",
+                "px-6 py-3 font-bold uppercase tracking-widest transition-all duration-200 border-r-2 border-foreground last:border-r-0",
                 filter === type 
-                  ? "bg-accent text-white shadow-[0_0_15px_rgba(0,162,255,0.3)]" 
-                  : "text-muted hover:text-foreground hover:bg-card"
+                  ? "bg-accent text-background" 
+                  : "text-foreground hover:bg-foreground hover:text-background"
               )}
             >
               {type === 'all' ? 'all' : type === 'active' ? 'in progress' : type === 'completed' ? 'completed' : 'on hold'}
@@ -348,42 +347,39 @@ export const ActiveProjects = () => {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.97 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              onClick={() => setActiveCard(activeCard === project.id ? null : project.id)}
               className={cn(
-                "group relative p-8 rounded-[2rem] bg-card border transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between shadow-[0_4px_24px_rgba(0,0,0,0.3)]",
+                "group relative p-8 bg-charcoal border-2 transition-all duration-200 cursor-pointer overflow-hidden flex flex-col justify-between",
                 activeCard === project.id
-                  ? "border-accent/80 bg-card shadow-[0_0_30px_rgba(0,162,255,0.1)] md:col-span-2 lg:col-span-3"
-                  : "border-white/5 hover:border-accent/40 hover:bg-charcoal/30"
+                  ? "border-accent md:col-span-2 lg:col-span-3 bg-background"
+                  : "border-foreground hover:border-accent hover:bg-background"
               )}
             >
-              {/* Background Dots on Card */}
-              <div className="absolute inset-0 bg-dots opacity-20 pointer-events-none" />
               
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between mb-6 relative z-10">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-muted bg-charcoal border border-white/5 px-2.5 py-1 rounded-md">
+                <div className="flex items-center justify-between mb-8 relative z-10">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-background bg-foreground px-3 py-1.5">
                     {project.category}
                   </span>
                   
                   {/* Status Indicator */}
-                  <div className="flex items-center gap-1.5 font-mono text-xs">
+                  <div className="flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-widest border-2 border-foreground px-3 py-1">
                     {project.status === 'completed' && (
-                      <span className="flex items-center gap-1.5 text-success font-bold bg-success/10 border border-success/20 px-3 py-1 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-success"></span>
-                        Completed
+                      <span className="flex items-center gap-2 text-success">
+                        <span className="w-1.5 h-1.5 bg-success"></span>
+                        COMPLETED
                       </span>
                     )}
                     {project.status === 'active' && (
-                      <span className="flex items-center gap-1.5 text-accent font-bold bg-accent/10 border border-accent/20 px-3 py-1 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
-                        In Progress
+                      <span className="flex items-center gap-2 text-accent">
+                        <span className="w-1.5 h-1.5 bg-accent animate-pulse"></span>
+                        IN PROGRESS
                       </span>
                     )}
                     {project.status === 'blocked' && (
-                      <span className="flex items-center gap-1.5 text-error font-bold bg-error/10 border border-error/20 px-3 py-1 rounded-full">
-                        <span className="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
-                        On Hold
+                      <span className="flex items-center gap-2 text-error">
+                        <span className="w-1.5 h-1.5 bg-error"></span>
+                        ON HOLD
                       </span>
                     )}
                   </div>
@@ -392,21 +388,21 @@ export const ActiveProjects = () => {
                 {/* Content */}
                 <div className="flex gap-5 items-start mb-4 relative z-10">
                   <div className={cn(
-                    "p-3.5 rounded-2xl flex items-center justify-center shrink-0 border",
-                    project.status === 'completed' ? "bg-success/5 text-success border-success/10" :
-                    project.status === 'active' ? "bg-accent/5 text-accent border-accent/10" :
-                    "bg-error/5 text-error border-error/10"
+                    "p-4 flex items-center justify-center shrink-0 border-2 border-foreground",
+                    project.status === 'completed' ? "bg-background text-success" :
+                    project.status === 'active' ? "bg-background text-accent" :
+                    "bg-background text-error"
                   )}>
                     {project.icon}
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold tracking-tight text-white group-hover:text-accent transition-colors flex items-center gap-2">
+                    <h3 className="text-3xl font-black tracking-tight text-foreground uppercase flex items-center gap-3">
                       {project.name}
                       {activeCard !== project.id && (
-                        <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-muted" />
+                        <ArrowUpRight className="w-6 h-6 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all text-accent" />
                       )}
                     </h3>
-                    <p className="text-muted text-sm mt-2 leading-relaxed">
+                    <p className="text-muted text-sm mt-3 font-mono leading-relaxed uppercase tracking-widest">
                       {project.description}
                     </p>
                   </div>
@@ -421,14 +417,14 @@ export const ActiveProjects = () => {
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="border-t border-white/5 pt-6 mt-6 overflow-hidden relative z-10"
+                    className="border-t-2 border-foreground pt-8 mt-8 overflow-hidden relative z-10"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                       <div>
-                        <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted mb-4">Key Accomplishments</h4>
-                        <ul className="space-y-3 font-mono text-xs">
+                        <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-background bg-foreground px-3 py-1 mb-6 inline-block">KEY ACCOMPLISHMENTS</h4>
+                        <ul className="space-y-4 font-mono text-xs">
                           {project.accomplishments.map((acc, index) => (
-                            <li key={index} className="flex gap-3 text-zinc-300 leading-relaxed">
+                            <li key={index} className="flex gap-4 text-foreground leading-relaxed uppercase tracking-wider">
                               <span className="text-accent font-bold shrink-0 mt-0.5">&gt;&gt;</span>
                               <span>{acc}</span>
                             </li>
@@ -436,26 +432,26 @@ export const ActiveProjects = () => {
                         </ul>
                       </div>
                       <div className="flex flex-col justify-between">
-                        <div className="space-y-4">
-                          <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-muted">Project Details</h4>
-                          <div className="bg-black/40 p-5 rounded-2xl border border-white/5 font-mono text-xs text-zinc-400 space-y-2.5">
-                            <p><span className="text-accent font-bold">Project ID:</span> {project.id}</p>
-                            <p><span className="text-accent font-bold">Current Status:</span> {project.statusText}</p>
-                            <p><span className="text-accent font-bold">Priority:</span> {project.status === 'blocked' ? 'HIGH' : 'NORMAL'}</p>
+                        <div className="space-y-6">
+                          <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-background bg-foreground px-3 py-1 inline-block">PROJECT DETAILS</h4>
+                          <div className="p-6 border-2 border-foreground font-mono text-xs text-muted space-y-4 bg-background uppercase tracking-widest">
+                            <p><span className="text-foreground font-bold">PROJECT ID:</span> {project.id}</p>
+                            <p><span className="text-foreground font-bold">CURRENT STATUS:</span> {project.statusText}</p>
+                            <p><span className="text-foreground font-bold">PRIORITY:</span> {project.status === 'blocked' ? 'HIGH' : 'NORMAL'}</p>
                           </div>
                         </div>
 
-                        <div className="flex flex-wrap gap-3 mt-6">
+                        <div className="flex flex-wrap gap-4 mt-8">
                           {project.github && (
                             <a
                               href={project.github}
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center justify-center gap-2 bg-charcoal hover:bg-black/80 border border-white/10 hover:border-accent/40 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_2px_8px_rgba(0,0,0,0.2)] hover:scale-[1.02]"
+                              className="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-foreground hover:bg-foreground hover:text-background text-foreground font-bold px-8 py-4 text-xs uppercase tracking-widest transition-all duration-200 font-mono"
                             >
                               <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
-                              Repository
+                              REPOSITORY
                             </a>
                           )}
 
@@ -465,9 +461,9 @@ export const ActiveProjects = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                               onClick={(e) => e.stopPropagation()}
-                              className="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent/80 text-white font-bold px-6 py-3.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300 font-mono shadow-[0_4px_15px_rgba(0,162,255,0.2)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
+                              className="inline-flex items-center justify-center gap-3 bg-accent border-2 border-accent hover:border-foreground hover:bg-foreground text-background hover:text-background font-bold px-8 py-4 text-xs uppercase tracking-widest transition-all duration-200 font-mono"
                             >
-                              {project.linkLabel || 'View Details'}
+                              {project.linkLabel || 'VIEW DETAILS'}
                               <ExternalLink className="w-4 h-4" />
                             </a>
                           )}

@@ -62,159 +62,154 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-white relative">
-      {/* Floating Island Navbar */}
+      {/* Terminal Navbar */}
       <nav className={cn(
-        "fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-4xl rounded-full border transition-all duration-500 px-6 py-4 flex items-center justify-between font-mono text-xs",
+        "fixed top-0 left-0 w-full z-50 transition-all duration-300 px-6 py-4 flex items-center justify-between font-mono text-xs border-b-2",
         scrolled 
-          ? "bg-card/80 backdrop-blur-xl border-accent/20 shadow-[0_10px_40px_rgba(0,162,255,0.06)] mt-2" 
-          : "bg-transparent border-white/5"
+          ? "bg-background border-foreground shadow-none" 
+          : "bg-transparent border-transparent"
       )}>
         <div className="flex items-center gap-3">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-success"></span>
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full bg-accent opacity-75"></span>
+            <span className="relative inline-flex h-3 w-3 bg-accent"></span>
           </span>
-          <span className="font-bold tracking-widest text-white uppercase flex items-center gap-1.5">
+          <span className="font-bold tracking-widest uppercase flex items-center gap-1.5">
             FRIDAY <span className="text-muted/60">//</span> SYSTEM OPERATIONS
           </span>
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-muted font-bold uppercase tracking-wider">
           <button onClick={() => scrollToSection('pipeline')} className="hover:text-accent transition-colors flex items-center gap-1.5">
-            <PipeIcon className="w-3.5 h-3.5" />
-            Operations
+            <PipeIcon className="w-4 h-4" />
+            OPERATIONS
           </button>
           <button onClick={() => scrollToSection('ecosystem')} className="hover:text-accent transition-colors flex items-center gap-1.5">
-            <Cpu className="w-3.5 h-3.5" />
-            Ecosystem
+            <Cpu className="w-4 h-4" />
+            ECOSYSTEM
           </button>
         </div>
 
         <div>
           <a 
             href="mailto:txmyer@gmail.com" 
-            className="bg-accent/10 border border-accent/30 hover:bg-accent hover:border-accent hover:text-white px-5 py-2.5 rounded-full font-bold uppercase tracking-widest text-accent transition-all duration-300 font-mono shadow-[0_2px_10px_rgba(0,162,255,0.15)]"
+            className="border-2 border-foreground hover:bg-foreground hover:text-background px-6 py-2 font-bold uppercase tracking-widest text-foreground transition-all duration-200 font-mono flex items-center gap-2"
           >
-            Connect
+            INITIATE HANDSHAKE
+            <Send className="w-3.5 h-3.5" />
           </a>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 bg-grid pt-24">
-        {/* Neon Light Gradients */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(0,162,255,0.06),transparent_50%)] pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[160px] -z-10 animate-pulse pointer-events-none" />
+      <section ref={heroRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 pt-24 border-b-2 border-foreground">
         
-        <div className="text-center z-10 max-w-4xl mx-auto flex flex-col items-center">
+        <div className="text-center z-10 max-w-4xl mx-auto flex flex-col items-center w-full">
           {/* Badge */}
-          <div className="hero-badge opacity-0 mb-6 bg-charcoal border border-white/5 px-4 py-2 rounded-full font-mono text-[10px] uppercase tracking-widest text-accent flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
+          <div className="hero-badge opacity-0 mb-8 border-2 border-foreground px-6 py-2 font-mono text-[10px] uppercase tracking-widest text-accent flex items-center gap-3 bg-charcoal">
+            <span className="w-2 h-2 bg-accent animate-pulse" />
             STATION ACTIVE: PORT 05-21
           </div>
 
           {/* Cinematic Title */}
-          <h1 className="hero-title-main opacity-0 text-5xl sm:text-7xl md:text-9xl font-bold tracking-tighter mb-8 leading-none">
+          <h1 className="hero-title-main opacity-0 text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-none uppercase">
             Meet <span className="text-accent relative inline-block">
               FRIDAY
-              <span className="absolute bottom-2 left-0 w-full h-[6px] bg-accent/30 rounded-full blur-[1px]"></span>
-            </span>.
+            </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="hero-subtitle opacity-0 text-lg sm:text-2xl text-muted max-w-2xl mx-auto mb-12 font-mono leading-relaxed text-balance">
+          <p className="hero-subtitle opacity-0 text-lg sm:text-xl text-muted max-w-2xl mx-auto mb-12 font-mono leading-relaxed text-balance uppercase tracking-wider">
             Autonomous operations dashboard. Aligning automated workflows, client onboarding pipelines, and digital assistant teams.
           </p>
 
           {/* CTA */}
-          <div className="hero-cta opacity-0 flex flex-col sm:flex-row gap-4 mb-20">
+          <div className="hero-cta opacity-0 flex flex-col sm:flex-row gap-6 mb-24 w-full justify-center">
             <button
               onClick={() => scrollToSection('pipeline')}
-              className="group flex items-center justify-center gap-2.5 bg-foreground text-background px-8 py-4.5 rounded-full text-base font-bold uppercase tracking-wider transition-all duration-300 hover:bg-accent hover:text-white shadow-[0_4px_20px_rgba(255,255,255,0.1)] hover:shadow-[0_4px_25px_rgba(0,162,255,0.3)] hover:scale-[1.02]"
+              className="group flex items-center justify-center gap-3 bg-foreground text-background border-2 border-foreground px-10 py-5 text-base font-bold uppercase tracking-widest transition-all duration-200 hover:bg-accent hover:border-accent hover:text-white"
             >
               Explore Operations
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
             </button>
             <a
               href="mailto:txmyer@gmail.com"
-              className="group flex items-center justify-center gap-2.5 bg-charcoal border border-white/5 hover:border-accent/40 text-white px-8 py-4.5 rounded-full text-base font-bold uppercase tracking-wider transition-all duration-300 hover:bg-black"
+              className="group flex items-center justify-center gap-3 bg-transparent border-2 border-foreground text-foreground px-10 py-5 text-base font-bold uppercase tracking-widest transition-all duration-200 hover:bg-foreground hover:text-background"
             >
-              Initiate Handshake
-              <Send className="w-4 h-4 text-muted group-hover:text-accent transition-colors" />
+              System Connect
+              <Send className="w-5 h-5" />
             </a>
           </div>
 
           {/* Telemetry Stats Bar */}
-          <div className="hero-stats-bar opacity-0 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 max-w-3xl w-full border-t border-white/5 pt-10 font-mono text-left bg-black/10 p-6 rounded-3xl backdrop-blur-sm border border-white/5">
-            <div>
-              <div className="text-[10px] text-muted uppercase tracking-wider font-bold mb-1">Roster Load</div>
-              <div className="text-2xl font-bold text-white">108 Agents</div>
-              <div className="text-[10px] text-success">8 Special Teams</div>
+          <div className="hero-stats-bar opacity-0 grid grid-cols-2 md:grid-cols-4 gap-0 w-full border-2 border-foreground font-mono text-left bg-charcoal">
+            <div className="p-6 border-r-2 border-b-2 md:border-b-0 border-foreground">
+              <div className="text-[10px] text-muted uppercase tracking-widest font-bold mb-2">Roster Load</div>
+              <div className="text-2xl font-bold text-foreground">108 Agents</div>
+              <div className="text-[10px] text-accent mt-1">8 Special Teams</div>
             </div>
-            <div>
-              <div className="text-[10px] text-muted uppercase tracking-wider font-bold mb-1">Coverage</div>
-              <div className="text-2xl font-bold text-white">100% Sync</div>
-              <div className="text-[10px] text-accent">Todoist Engaged</div>
+            <div className="p-6 border-b-2 md:border-b-0 md:border-r-2 border-foreground">
+              <div className="text-[10px] text-muted uppercase tracking-widest font-bold mb-2">Coverage</div>
+              <div className="text-2xl font-bold text-foreground">100% Sync</div>
+              <div className="text-[10px] text-accent mt-1">Todoist Engaged</div>
             </div>
-            <div>
-              <div className="text-[10px] text-muted uppercase tracking-wider font-bold mb-1">Pass rate</div>
-              <div className="text-2xl font-bold text-white">63 / 63 Specs</div>
-              <div className="text-[10px] text-success">Builds Clean</div>
+            <div className="p-6 border-r-2 border-foreground">
+              <div className="text-[10px] text-muted uppercase tracking-widest font-bold mb-2">Pass rate</div>
+              <div className="text-2xl font-bold text-foreground">63 / 63 Specs</div>
+              <div className="text-[10px] text-accent mt-1">Builds Clean</div>
             </div>
-            <div>
-              <div className="text-[10px] text-muted uppercase tracking-wider font-bold mb-1">Active Cluster</div>
-              <div className="text-2xl font-bold text-white">Ubuntu VPS</div>
-              <div className="text-[10px] text-accent">Dokploy Orchestrated</div>
+            <div className="p-6">
+              <div className="text-[10px] text-muted uppercase tracking-widest font-bold mb-2">Active Cluster</div>
+              <div className="text-2xl font-bold text-foreground">Ubuntu VPS</div>
+              <div className="text-[10px] text-accent mt-1">Dokploy Orchestrated</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Active Projects Showcase */}
-      <div id="pipeline">
+      <div id="pipeline" className="border-b-2 border-foreground">
         <ActiveProjects />
       </div>
 
       {/* Bento Ecosystem */}
-      <div id="ecosystem">
+      <div id="ecosystem" className="border-b-2 border-foreground">
         <BentoEcosystem />
       </div>
 
-      {/* Brutalist Call to Action Section */}
-      <section className="py-32 px-4 text-center bg-black/20 border-t border-white/5 relative overflow-hidden">
-        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(0,162,255,0.06),transparent_70%)] pointer-events-none" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-[150px] pointer-events-none" />
+      {/* Terminal Call to Action Section */}
+      <section className="py-32 px-4 text-center bg-charcoal relative overflow-hidden">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="relative z-10 max-w-4xl mx-auto"
         >
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-accent bg-accent/10 border border-accent/20 px-3 py-1 rounded-full mb-6 inline-block">
-            Establish Link
+          <span className="text-xs font-mono font-bold uppercase tracking-widest text-background bg-accent px-4 py-2 mb-8 inline-block">
+            ESTABLISH LINK // PORTAL OPEN
           </span>
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-bold tracking-tight mb-8 text-balance">
-            I build systems that run when you aren't looking.
+          <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tighter mb-10 text-balance uppercase">
+            Systems that run when you aren't looking.
           </h2>
-          <p className="text-lg sm:text-2xl text-muted max-w-2xl mx-auto leading-relaxed mb-12 font-mono">
+          <p className="text-lg sm:text-xl text-muted max-w-2xl mx-auto leading-relaxed mb-16 font-mono uppercase tracking-wider">
             Secure, scalable orchestration workflows designed for engineering leaders and autonomous operations.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
             <a 
               href="mailto:txmyer@gmail.com"
-              className="inline-flex items-center gap-3 bg-accent hover:bg-accent/80 text-white font-bold px-8 py-5 rounded-full text-base uppercase tracking-widest transition-all duration-300 shadow-[0_4px_20px_rgba(0,162,255,0.2)] hover:shadow-[0_4px_30px_rgba(0,162,255,0.4)] hover:scale-[1.03]"
+              className="inline-flex items-center gap-4 bg-accent hover:bg-foreground text-white hover:text-background font-bold px-10 py-6 text-base uppercase tracking-widest transition-all duration-200 border-2 border-transparent hover:border-foreground"
             >
-              Let's build your pipeline
-              <Mail className="w-5 h-5" />
+              Initialize Build
+              <Mail className="w-6 h-6" />
             </a>
             <a 
-              href="https://github.com" 
+              href="https://github.com/txmyer-dev" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted hover:text-white font-mono text-sm tracking-wider transition-colors"
+              className="inline-flex items-center gap-3 text-muted hover:text-foreground font-mono text-sm tracking-widest transition-colors border-b-2 border-transparent hover:border-foreground pb-1"
             >
               <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg> /txmyer-dev
             </a>
@@ -223,23 +218,23 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 border-t border-white/5 bg-background relative z-10 font-mono text-[10px] text-muted tracking-widest uppercase">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="py-12 bg-background border-t-2 border-foreground relative z-10 font-mono text-xs text-muted tracking-widest uppercase">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-ping" />
-            <span>FRIDAY CORE v2.6.5</span>
+            <span className="w-2 h-2 bg-accent animate-pulse" />
+            <span className="text-foreground font-bold">FRIDAY CORE v2.6.5</span>
           </div>
           <div>
             © {new Date().getFullYear()} FRIDAY Showcase. Designed by Tony Myers.
           </div>
-          <div className="flex gap-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Github</a>
-            <span>/</span>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <div className="flex gap-6">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Github</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a>
           </div>
         </div>
       </footer>
     </div>
   );
 }
+
 
