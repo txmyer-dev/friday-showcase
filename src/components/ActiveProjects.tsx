@@ -41,7 +41,7 @@ const PROJECTS: Project[] = [
     name: 'Business Operations Hub',
     category: 'Core Operations',
     description: 'A central system of record that takes business plans, schedules, and incoming signals, organizing them into clear tasks for the team.',
-    status: 'active',
+    status: 'completed',
     statusText: 'Fully Operational',
     icon: <GitBranch className="w-5 h-5" />,
     accomplishments: [
@@ -72,7 +72,7 @@ const PROJECTS: Project[] = [
     category: 'AI Workforce',
     description: 'A network of digital assistants trained to handle client support, media creation, strategy, and operations.',
     status: 'active',
-    statusText: 'Active & Onboarding',
+    statusText: 'In Progress',
     icon: <Database className="w-5 h-5" />,
     accomplishments: [
       'Reorganized the workforce into 8 specialized teams (Support, Legal, Marketing, etc.).',
@@ -85,8 +85,8 @@ const PROJECTS: Project[] = [
     name: 'Executive Client Portal',
     category: 'Client Platforms',
     description: 'A high-performance portal created to present professional milestones, resumes, and automated portfolios.',
-    status: 'completed',
-    statusText: 'Published Live',
+    status: 'active',
+    statusText: 'In Progress',
     icon: <Code className="w-5 h-5" />,
     accomplishments: [
       'Designed and built a modern, smooth web design with quick page loads.',
@@ -119,8 +119,8 @@ const PROJECTS: Project[] = [
     name: 'Smart Knowledge Base',
     category: 'Knowledge Systems',
     description: 'A long-term memory engine that indexes research, articles, and past decisions for instant recall by the team.',
-    status: 'active',
-    statusText: 'Memory Feed Active',
+    status: 'completed',
+    statusText: 'Completed',
     icon: <Activity className="w-5 h-5" />,
     accomplishments: [
       'Separated knowledge searches from meeting automation to improve search speeds.',
@@ -134,7 +134,7 @@ const PROJECTS: Project[] = [
     category: 'Core Operations',
     description: 'A structured system that automatically configures client databases and records when they register.',
     status: 'active',
-    statusText: 'Testing Logic',
+    statusText: 'In Progress',
     icon: <Workflow className="w-5 h-5" />,
     accomplishments: [
       'Completed a full design map showing how a client moves from sign-up to launch.',
@@ -160,8 +160,8 @@ const PROJECTS: Project[] = [
     name: 'Communication Automations',
     category: 'Automations',
     description: 'Workflows that automatically send scheduled reports, summaries, and notifications to Slack and Google Docs.',
-    status: 'blocked',
-    statusText: 'Awaiting Authorization',
+    status: 'completed',
+    statusText: 'Completed',
     icon: <Terminal className="w-5 h-5" />,
     accomplishments: [
       'Repaired automated briefing schedulers.',
@@ -174,8 +174,8 @@ const PROJECTS: Project[] = [
     name: 'Fitness & Sleep Tracker',
     category: 'Automations',
     description: 'An automated flow to sync steps, sleep data, and wellness indicators into the team logging systems.',
-    status: 'blocked',
-    statusText: 'Pending App Permission',
+    status: 'completed',
+    statusText: 'Completed',
     icon: <AlertCircle className="w-5 h-5" />,
     accomplishments: [
       'Configured secure callback links.',
@@ -188,7 +188,7 @@ const PROJECTS: Project[] = [
     name: 'pocketScribe (Voice Pipeline)',
     category: 'Voice Automation',
     description: 'An automated audio-to-text pipeline that processes voice recordings, runs diarization, and syncs meeting transcripts directly to Notion and Slack.',
-    status: 'active',
+    status: 'completed',
     statusText: 'Production Deployed',
     icon: <Mic className="w-5 h-5" />,
     accomplishments: [
@@ -221,8 +221,8 @@ const PROJECTS: Project[] = [
     name: 'SO-WHAT Engine',
     category: 'Knowledge Systems',
     description: 'A strategic alignment system that links agent goals with high-leverage tasks using the Skill("StrategicAlignment") core logic.',
-    status: 'active',
-    statusText: 'Core Development (Phase 1)',
+    status: 'completed',
+    statusText: 'Completed',
     icon: <Workflow className="w-5 h-5" />,
     accomplishments: [
       'Captured SO-WHAT core engine requirements in 03-SYSTEM/SO-WHAT-Requirements.md.',
@@ -250,7 +250,7 @@ const PROJECTS: Project[] = [
     category: 'Core Operations',
     description: 'A structured 7-stage ICM pipeline with stage contracts, plans, transition autonomy protocols, and orchestration scripts.',
     status: 'active',
-    statusText: 'Orchestration Active',
+    statusText: 'In Progress',
     icon: <Layers className="w-5 h-5" />,
     accomplishments: [
       'Installed the ICM-Architect skill and verified structured parser workflows on dev briefs.',
@@ -280,8 +280,8 @@ const PROJECTS: Project[] = [
     name: 'Slack Bot & FreeLLMAPI',
     category: 'Automations',
     description: 'An integration layer that connects Slack Bolt communication pipelines with a unified FreeLLMAPI provider pool.',
-    status: 'active',
-    statusText: 'Integration Active',
+    status: 'completed',
+    statusText: 'Completed',
     icon: <Terminal className="w-5 h-5" />,
     accomplishments: [
       'Deployed FreeLLMAPI with 5 LLM provider keys as a persisted systemd service running on port 3001.',

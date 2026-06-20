@@ -23,11 +23,7 @@ export default function App() {
       const ctx = gsap.context(() => {
         const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
         
-        tl.fromTo(".hero-badge", 
-          { y: -20, opacity: 0 }, 
-          { y: 0, opacity: 1, duration: 0.8 }
-        )
-        .fromTo(".hero-title-main", 
+        tl.fromTo(".hero-title-main", 
           { y: 60, opacity: 0 }, 
           { y: 0, opacity: 1, duration: 1.2 },
           "-=0.6"
@@ -105,12 +101,6 @@ export default function App() {
       <section ref={heroRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 pt-24 border-b-2 border-foreground">
         
         <div className="text-center z-10 max-w-4xl mx-auto flex flex-col items-center w-full">
-          {/* Badge */}
-          <div className="hero-badge opacity-0 mb-8 border-2 border-foreground px-6 py-2 font-mono text-[10px] uppercase tracking-widest text-accent flex items-center gap-3 bg-charcoal">
-            <span className="w-2 h-2 bg-accent animate-pulse" />
-            STATION ACTIVE: PORT 05-21
-          </div>
-
           {/* Cinematic Title */}
           <h1 className="hero-title-main opacity-0 text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-none uppercase">
             Meet <span className="text-accent relative inline-block">
