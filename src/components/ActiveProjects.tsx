@@ -296,7 +296,13 @@ export const ActiveProjects = () => {
   const [filter, setFilter] = useState<'all' | ProjectStatus>('all');
   const [activeCard, setActiveCard] = useState<string | null>(null);
 
-  const filteredProjects = PROJECTS.filter(p => filter === 'all' || p.status === filter);
+  const filteredProjects = PROJECTS.filter(p => filter === 'all' || p.status === filter).sort((a, b) => {
+    const statusOrder = { active: 0, completed: 1, blocked: 2 };
+    if (statusOrder[a.status] !== statusOrder[b.status]) {
+      return statusOrder[a.status] - statusOrder[b.status];
+    }
+    return a.name.localeCompare(b.name);
+  });
 
   return (
     <section className="py-32 px-4 max-w-7xl mx-auto bg-background relative">
